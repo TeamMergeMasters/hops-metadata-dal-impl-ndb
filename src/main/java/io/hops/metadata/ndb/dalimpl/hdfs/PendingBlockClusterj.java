@@ -105,7 +105,7 @@ public class PendingBlockClusterj
     long getTimestamp();
 
     void setTimestamp(long timestamp);
-
+    
     @Column(name = NUM_REPLICAS_IN_PROGRESS)
     int getNumReplicasInProgress();
 
@@ -208,7 +208,7 @@ public class PendingBlockClusterj
       PendingBlockDTO pendingTable) throws StorageException {
     PendingBlockInfo pendingBlockInfo =  new PendingBlockInfo(pendingTable.getBlockId(),
         pendingTable.getINodeId(), pendingTable.getTimestamp(),
-        pendingTable.getNumReplicasInProgress());
+        null);//TODO  //pendingTable.getNumReplicasInProgress());
     session.release(pendingTable);
     return pendingBlockInfo;
   }
